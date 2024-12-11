@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <script>
+        function jumlahkan() {
+            let x = parseFloat(document.getElementById("bil1").value) || 0;
+            let y = parseFloat(document.getElementById("bil2").value) || 0;
+            let z = 0;
+
+            if (document.getElementById("tambah").checked) {
+                z = x + y;
+            } else if (document.getElementById("kurang").checked) {
+                z = x - y;
+            } else if (document.getElementById("bagi").checked) {
+                z = y !== 0 ? x / y : "Tidak dapat membagi dengan 0";
+            } else if (document.getElementById("kali").checked) {
+                z = x * y;
+            } else {
+                z = "Pilih operasi terlebih dahulu!";
+            }
+
+            // Tampilkan hasil
+            document.getElementById("hasil").textContent = z;
+        }
+    </script>
+</head>
+<body>
+    <h2>Kalkulator Sederhana</h2>
+    <form action="javascript:void(0);">
+        <label for="bil1">Bilangan 1:</label>
+        <input type="number" id="bil1" placeholder="Masukkan bilangan pertama">
+        <br><br>
+        <label for="bil2">Bilangan 2:</label>
+        <input type="number" id="bil2" placeholder="Masukkan bilangan kedua">
+        <br><br>
+        <label>Pilih Operasi Aritmatika:</label><br>
+        <input type="radio" name="ht" id="tambah"> + 
+        <input type="radio" name="ht" id="kurang"> - 
+        <input type="radio" name="ht" id="bagi"> ÷ 
+        <input type="radio" name="ht" id="kali"> × 
+        <br>
+        <input type="button" value="Hitung" onclick="jumlahkan()">
+        <br><br>
+        <label>Hasil:</label>
+        <span id="hasil" style="font-weight: bold;"></span>
+    </form>
+</body>
+</html>
